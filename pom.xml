@@ -20,6 +20,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<docker.image.prefix>gf</docker.image.prefix>
+		<insecure-registries>120.79.235.248:5000</insecure-registries>
 	</properties>
 
 	<dependencies>
@@ -48,7 +49,7 @@
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>1.2.0</version>
 				<configuration>
-					<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+					<imageName>${insecure-registries}/${project.artifactId}</imageName><!--将镜像上传到私服的镜像命名方式-->
 					<dockerDirectory>src/main/resources/docker</dockerDirectory>
 					<resources>
 						<resource>
