@@ -51,7 +51,7 @@
 				<configuration>
 					<imageName>${insecure-registries}/${project.artifactId}</imageName><!--将镜像上传到私服的镜像命名方式-->
 					<dockerDirectory>src/main/resources/docker</dockerDirectory>
-					<resources>
+					<resources><!--将镜像上传到私服：mvn clean package docker:build -Dmaven.test.skip=true -DpushImage-->
 						<resource>
 							<targetPath>/</targetPath>
 							<directory>${project.build.directory}</directory>
