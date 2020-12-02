@@ -20,7 +20,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<docker.image.prefix>gf</docker.image.prefix>
-		<insecure-registries>120.79.235.248:5000</insecure-registries>
+		<insecure-registries>10.122.71.209:5000</insecure-registries>
 	</properties>
 
 	<dependencies>
@@ -50,8 +50,11 @@
 				<version>1.2.0</version>
 				<configuration>
 					<imageName>${insecure-registries}/${project.artifactId}</imageName><!--将镜像上传到私服的镜像命名方式-->
+					<imageTags>
+						<imageTag>1.0.0</imageTag>
+					</imageTags>
 					<dockerDirectory>src/main/resources/docker</dockerDirectory>
-					<resources><!--将镜像上传到私服：mvn clean package docker:build -Dmaven.test.skip=true -DpushImage-->
+					<resources><!--将镜像上传到私服：mvn clean package docker:build -Dmaven.test.skip=true -DpushImageTag-->
 						<resource>
 							<targetPath>/</targetPath>
 							<directory>${project.build.directory}</directory>
