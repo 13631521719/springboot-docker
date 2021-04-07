@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.net.InetAddress;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,9 +25,7 @@ public class TestController {
         map.put("code","200");
         map.put("message","欢迎你，我的主人，尊贵的刘林先生");
         map.put("ip",getIp());
-        map.put("key1",key1);
-        map.put("key2",key2);
-        map.put("timestemp",System.currentTimeMillis());
+        map.put("timestemp",new SimpleDateFormat("YYYY-MM-DD HH:mm:ss"));
         return map;
     }
 
