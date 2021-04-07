@@ -20,7 +20,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<docker.image.prefix>gf</docker.image.prefix>
-		<insecure-registries>10.122.71.209:5000</insecure-registries>
+		<insecure-registries>172.20.10.3:5000</insecure-registries>
 	</properties>
 
 	<dependencies>
