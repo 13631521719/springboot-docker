@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.net.InetAddress;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,9 +24,9 @@ public class TestController {
     Map test()throws Exception{
         Map map=new HashMap();
         map.put("code","200");
-        map.put("message","欢迎你，我的主人，尊贵的刘林先生");
+        map.put("message","欢迎你，尊贵的刘林先生");
         map.put("ip",getIp());
-        map.put("timestemp",new SimpleDateFormat("YYYY-MM-DD HH:mm:ss"));
+        map.put("timestemp",new SimpleDateFormat("YYYY-MM-DD HH:mm:ss").format(new Date()));
         return map;
     }
 
