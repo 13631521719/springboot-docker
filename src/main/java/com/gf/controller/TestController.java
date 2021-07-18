@@ -1,5 +1,6 @@
 package com.gf.controller;
 
+import com.gf.protobuf.AddressBookOuterClass;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,5 +43,21 @@ public class TestController {
             e.printStackTrace();
             return "500";
         }
+    }
+
+
+    public static void main(String[] args) {
+        AddressBookOuterClass.AddressBook .Builder  addressBook= AddressBookOuterClass.AddressBook .newBuilder();
+        AddressBookOuterClass.Person .Builder  person= AddressBookOuterClass.Person .newBuilder();
+        person.setName("Mike");
+        person.setEmail("Email");
+
+        addressBook.setPerson(1,person);
+
+        AddressBookOuterClass.Person.PhoneNumber.Builder phoneNum=AddressBookOuterClass.Person.PhoneNumber.newBuilder();
+        phoneNum.setNumber("12314444");
+        phoneNum.setType(AddressBookOuterClass.Person.PhoneType.HOME);
+        person.setPhone(4,phoneNum);
+
     }
 }
