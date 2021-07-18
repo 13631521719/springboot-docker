@@ -1,0 +1,39 @@
+syntax = "proto2";
+
+//生成的类会放在protoc.exe同目录下的tutorial
+//如果.proto文件中写了java_package，就以java_package为准。
+package com.gf.protobuf;
+//生成的类会放在protoc.exe同目录下的com.proto.tutorial下
+//option java_package = "com.proto.tutorial";
+//最终成的类名
+//option java_outer_classname = "AddressBookProtos";
+
+
+message Person {
+  required string name = 1;
+  required int32 id = 2;
+  optional string email = 3;
+  enum PhoneType {
+    MOBILE = 0;
+    HOME = 1;
+    WORK = 2;
+  }
+
+  message PhoneNumber {
+    required string number = 1;
+    optional PhoneType type = 2 [default = HOME];
+  }
+  repeated PhoneNumber phone = 4;
+}
+message AddressBook {
+
+  repeated Person person = 1;
+}
+
+
+
+
+
+   // protoc.exe -I=D:\project\springboot-docker\src\main\java\com\gf\protobuf --java_out=D:\project\springboot-docker\src\main\java\com\gf\protobuf  D:\project\springboot-docker\src\main\java\com\gf\protobuf\addressBook.proto
+
+    //protoc.exe -I=(proto文件所在绝对路径，不包括proto文件本身)  --java_out=(文件输出目录) (proto文件所在绝对路径，包括proto文件名)
